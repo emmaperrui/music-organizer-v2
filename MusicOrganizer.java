@@ -1,3 +1,4 @@
+
 import java.util.ArrayList;
 
 /**
@@ -89,5 +90,13 @@ public class MusicOrganizer
             System.out.println(position + ".- " + filename) ;
             position = position + 1;
         }
+    }
+    
+    public void listMatching (String searchString) {
+        for(String filename : files) {
+            if(filename.contains (searchString)) {
+                System.out.println (filename);
+            }
+        } 
     }
 }
