@@ -93,10 +93,15 @@ public class MusicOrganizer
     }
     
     public void listMatching (String searchString) {
+        boolean cancionEncontrada = false;
         for(String filename : files) {
             if(filename.contains (searchString)) {
                 System.out.println (filename);
+                cancionEncontrada = true;
             }
         } 
+        if (!cancionEncontrada){
+                System.out.println ("ERROR " + searchString + " NO VÁLIDO!! Intruduzca nuevo nombre");
+            }
     }
 }
