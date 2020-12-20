@@ -104,4 +104,12 @@ public class MusicOrganizer
                 System.out.println ("ERROR " + searchString + " NO VÁLIDO!! Intruduzca nuevo nombre");
             }
     }
+    
+    public void playSamplesArtist (String cancionAutor) {
+        for(String filename : files) {
+            if(filename.contains (cancionAutor)) {
+                player.playSample(filename);
+            }
+        } 
+    }
 }
