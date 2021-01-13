@@ -88,7 +88,7 @@ public class MusicOrganizer
         int index = 0;
         while (index < files.size()) {
             String filename = files.get(index);
-            System.out.println(filename);
+            System.out.println(index + ".-" + filename);
             index++;
         }
     }
