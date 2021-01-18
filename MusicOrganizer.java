@@ -14,7 +14,7 @@ public class MusicOrganizer
     private ArrayList<String> files;
     // A player for the music files.
     private MusicPlayer player;
-        
+
     /**
      * Create a MusicOrganizer
      */
@@ -23,7 +23,7 @@ public class MusicOrganizer
         files = new ArrayList<String>();
         player = new MusicPlayer();
     }
-    
+
     /**
      * Add a file to the collection.
      * @param filename The file to be added.
@@ -32,7 +32,7 @@ public class MusicOrganizer
     {
         files.add(filename);
     }
-    
+
     /**
      * Return the number of files in the collection.
      * @return The number of files in the collection.
@@ -41,7 +41,7 @@ public class MusicOrganizer
     {
         return files.size();
     }
-    
+
     /**
      * List a file from the collection.
      * @param index The index of the file to be listed.
@@ -53,7 +53,7 @@ public class MusicOrganizer
             System.out.println(filename);
         }
     }
-    
+
     /**
      * Remove a file from the collection.
      * @param index The index of the file to be removed.
@@ -83,7 +83,7 @@ public class MusicOrganizer
     {
         player.stop();
     }
-    
+
     public void listAllFiles () {
         int index = 0;
         while (index < files.size()) {
@@ -92,7 +92,7 @@ public class MusicOrganizer
             index++;
         }
     }
-    
+
     public void listMatching (String searchString) {
         boolean cancionEncontrada = false;
         for(String filename : files) {
@@ -102,10 +102,10 @@ public class MusicOrganizer
             }
         } 
         if (!cancionEncontrada){
-                System.out.println ("ERROR " + searchString + " NO VÁLIDO!! Intruduzca nuevo nombre");
-            }
+            System.out.println ("ERROR " + searchString + " NO VÁLIDO!! Intruduzca nuevo nombre");
+        }
     }
-    
+
     public void playSamplesArtist (String cancionAutor) {
         for(String filename : files) {
             if(filename.contains (cancionAutor)) {
@@ -113,5 +113,30 @@ public class MusicOrganizer
             }
         } 
     }
-    
+
+    /**
+     * Localiza el índice del primer archivo que se corresponde con
+     * la cadena de búsqueda indicada. (imprimir en qué puesto del índice
+     * se encuentra la canción que hemos buscado)
+     * @param searchString La cadena que hay que buscar.
+     * @return El índice de la primera aparición o -1 si
+     * no se encuentra ninguna correspondencia
+     */
+    public int findFirst(String searchString){
+        int index = 0;
+        boolean cadenaEncontrada = false;
+        while (index < files.size() && !cadenaEncontrada){
+            if (files.get(index).contains(searchString)){
+                cadenaEncontrada = true;
+            }else {
+                index++;
+            }
+        }
+        if (cadenaEncontrada == true){
+            index++;
+        }else {
+            index = -1;
+        }
+        return index;
+    }
 }
