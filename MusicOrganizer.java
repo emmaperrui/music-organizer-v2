@@ -132,9 +132,7 @@ public class MusicOrganizer
                 index++;
             }
         }
-        if (cadenaEncontrada == true){
-            index++;
-        }else {
+        if (cadenaEncontrada == false){
             index = -1;
         }
         return index;
