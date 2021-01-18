@@ -125,9 +125,10 @@ public class MusicOrganizer
     public int findFirst(String searchString){
         int index = 0;
         boolean cadenaEncontrada = false;
-        while (index < files.size() && !cadenaEncontrada){
+        while (index < files.size()){
             if (files.get(index).contains(searchString)){
                 cadenaEncontrada = true;
+                break;
             }else {
                 index++;
             }
