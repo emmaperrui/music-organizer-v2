@@ -128,14 +128,15 @@ public class MusicOrganizer
         while (index < files.size()){
             if (files.get(index).contains(searchString)){
                 cadenaEncontrada = true;
-                break;
-            }else {
+                index = index + files.size();
+            }else{
                 index++;
             }
         }
-        if (cadenaEncontrada == false){
-            index = -1;
+        int resultado = index - files.size();
+        if(cadenaEncontrada == false){
+            resultado = resultado -1;
         }
-        return index;
+        return resultado;
     }
 }
